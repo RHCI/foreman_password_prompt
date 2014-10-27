@@ -17,6 +17,14 @@ module ForemanPasswordPrompt
       elsif
           puts "Passwords are not the same"
       end
+
+      # this breaks things
+      #@user = find_resource(:edit_users)
+      #if @user == nil
+      #    puts @user.login
+      #elsif
+      #    puts "User is null"
+      #end
     end
 
   end
