@@ -1,13 +1,13 @@
 module ForemanPasswordPrompt
 
-  # Example: Plugin's HostsController inherits from Foreman's HostsController
-  class HostsController < ::HostsController
+  # Example: Plugin's UsersController inherits from Foreman's UsersController
+  class UsersController < ::UsersController
 
     # change layout if needed
     # layout 'foreman_password_prompt/layouts/new_layout'
 
     def new_action
-      # automatically renders view/foreman_password_prompt/hosts/new_action
+      # automatically renders view/foreman_password_prompt/users/new_action
       puts "New action called"
       puts params[:new_password]
       puts params[:confirm_password]

@@ -19,18 +19,18 @@ module ForemanPasswordPrompt
 
         # Add permissions
         security_block :foreman_password_prompt do
-          permission :view_foreman_password_prompt, {:'foreman_password_prompt/hosts' => [:new_action] }
+          permission :view_foreman_password_prompt, {:'foreman_password_prompt/users' => [:new_action] }
         end
 
         # Add a new role called 'Discovery' if it doesn't exist
         role "ForemanPasswordPrompt", [:view_foreman_password_prompt]
 
         #add menu entry
-        menu :top_menu, :template,
-             :url_hash => {:controller => :'foreman_password_prompt/hosts', :action => :new_action },
+        menu :admin_menu, :template,
+             :url_hash => {:controller => :'foreman_password_prompt/users', :action => :new_action },
              :caption  => 'ForemanPasswordPrompt',
-             :parent   => :hosts_menu,
-             :after    => :hosts
+             :parent   => :administer_menu,
+             :after    => :users
 
         # add dashboard widget
         widget 'foreman_password_prompt_widget', :name=>N_('Foreman plugin template widget'), :sizex => 4, :sizey =>1
@@ -40,8 +40,8 @@ module ForemanPasswordPrompt
     #Include concerns in this config.to_prepare block
     config.to_prepare do
       begin
-        Host::Managed.send(:include, ForemanPasswordPrompt::HostExtensions)
-        HostsHelper.send(:include, ForemanPasswordPrompt::HostsHelperExtensions)
+        User::Managed.send(:include, ForemanPasswordPrompt::UserExtensions)
+        UsersHelper.send(:include, ForemanPasswordPrompt::UsersHelperExtensions)
       rescue => e
         puts "ForemanPasswordPrompt: skipping engine hook (#{e.to_s})"
       end
