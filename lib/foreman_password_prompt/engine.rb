@@ -40,9 +40,15 @@ module ForemanPasswordPrompt
     #Include concerns in this config.to_prepare block
     config.to_prepare do
       begin
-        User::Managed.send(:include, ForemanPasswordPrompt::UserExtensions)
+        puts "XXX preparing config"
+        #User::Managed.send(:include, ForemanPasswordPrompt::UserExtensions)
+        # XXX: suggestion from joseph, comment out User and add Controller.send
+        puts "XXX Calling Controller.send"
+        ApplicationController.send(:include, ForemanPasswordPrompt::ApplicationControllerExtensions)
+        puts "XXX Calling UsersHelper.send"
         UsersHelper.send(:include, ForemanPasswordPrompt::UsersHelperExtensions)
       rescue => e
+        puts "XXX ugh is this really a problem?"
         puts "ForemanPasswordPrompt: skipping engine hook (#{e.to_s})"
       end
     end
