@@ -19,7 +19,7 @@ module ForemanPasswordPrompt
 
         # Add permissions
         security_block :foreman_password_prompt do
-          permission :view_foreman_password_prompt, {:'foreman_password_prompt/users' => [:new_action] }
+          permission :view_foreman_password_prompt, {:'foreman_password_prompt/users' => [:change_password] }
         end
 
         # Add a new role called 'Discovery' if it doesn't exist
@@ -27,7 +27,7 @@ module ForemanPasswordPrompt
 
         #add menu entry
         menu :admin_menu, :template,
-             :url_hash => {:controller => :'foreman_password_prompt/users', :action => :new_action },
+             :url_hash => {:controller => :'foreman_password_prompt/users', :action => :change_password },
              :caption  => 'ForemanPasswordPrompt',
              :parent   => :administer_menu,
              :after    => :users

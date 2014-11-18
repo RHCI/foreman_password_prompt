@@ -4,7 +4,7 @@ module ForemanPasswordPrompt
 
         included do
             alias_method_chain :login, :dynflow
-            alias_method_chain :new_action, :dynflow
+            alias_method_chain :change_password, :dynflow
             alias_method_chain :welcome, :dynflow
             #alias_method_chain :create, :dynflow
         end
@@ -13,8 +13,8 @@ module ForemanPasswordPrompt
             puts "XXX login with dynflow called"
         end
 
-        def new_action_with_dynflow
-            puts "XXX new_action with dynflow called"
+        def change_password_with_dynflow
+            puts "XXX change_password with dynflow called"
         end
 
         def welcome_with_dynflow

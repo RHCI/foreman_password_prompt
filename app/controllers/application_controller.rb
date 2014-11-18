@@ -6,6 +6,6 @@ class ApplicationController < ::ApplicationController
 
     def change_password
         puts "YYY We need to change passwords"
-        redirect_to(:new_action)
+        redirect_to(:change_password)
     end
 end

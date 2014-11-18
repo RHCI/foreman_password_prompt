@@ -7,14 +7,15 @@ module ForemanPasswordPrompt
     #before_filter :change_password
 
     #def change_password
+    # THIS WILL CONFLICT NOW that new_action has been renamed below
     #    puts "XXX We need to change passwords"
     #end
 
     # change layout if needed
     # layout 'foreman_password_prompt/layouts/new_layout'
 
-    def new_action
-      # automatically renders view/foreman_password_prompt/users/new_action
+    def change_password
+      # automatically renders view/foreman_password_prompt/users/change_password
       puts "New action called"
       puts params[:new_password]
       puts params[:confirm_password]
