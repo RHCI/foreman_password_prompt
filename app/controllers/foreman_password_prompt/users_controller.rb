@@ -4,11 +4,11 @@ module ForemanPasswordPrompt
   class UsersController < ::UsersController
       include Foreman::Controller::UsersMixin
 
-    before_filter :change_password
+    #before_filter :change_password
 
-    def change_password
-        puts "XXX We need to change passwords"
-    end
+    #def change_password
+    #    puts "XXX We need to change passwords"
+    #end
 
     # change layout if needed
     # layout 'foreman_password_prompt/layouts/new_layout'
