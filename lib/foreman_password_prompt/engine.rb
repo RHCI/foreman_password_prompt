@@ -28,7 +28,8 @@ module ForemanPasswordPrompt
         #add menu entry
         menu :admin_menu, :template,
              :url_hash => {:controller => :'foreman_password_prompt/users', :action => :change_password },
-             :caption  => 'ForemanPasswordPrompt',
+             #:caption  => 'ForemanPasswordPrompt',
+             :caption  => 'Change Password',
              :parent   => :administer_menu,
              :after    => :users
 
