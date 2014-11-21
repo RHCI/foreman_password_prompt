@@ -45,7 +45,7 @@ module ForemanPasswordPrompt
         #User::Managed.send(:include, ForemanPasswordPrompt::UserExtensions)
         # XXX: suggestion from joseph, comment out User and add Controller.send
         puts "XXX Calling Controller.send"
-        ApplicationController.send(:include, ForemanPasswordPrompt::ApplicationControllerExtensions)
+        ::ApplicationController.send(:include, ForemanPasswordPrompt::Concerns::ApplicationControllerExtensions)
         puts "XXX Calling UsersHelper.send"
         UsersHelper.send(:include, ForemanPasswordPrompt::UsersHelperExtensions)
       rescue => e
