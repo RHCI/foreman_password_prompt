@@ -1,3 +1,6 @@
+# THIS IS DEAD
+I created it to learn how to do foreman plugins.
+
 # ForemanPasswordPrompt
 
 *Introdction here*
